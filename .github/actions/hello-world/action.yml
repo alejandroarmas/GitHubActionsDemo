@@ -9,3 +9,8 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
     default: 42
+runs:
+  using: 'composite'
+  steps: 
+    - run: echo Hello ${{ inputs.who-to-greet }}, this is your first action!
+      shell: bash
