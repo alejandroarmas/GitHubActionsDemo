@@ -8,7 +8,7 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
         
       - name: Testing Action
-        uses: .github/workflows/
+        uses: ./.github/actions/hello-world
         id: hello
         with:
           who-to-greet: 'Alejandro Armas'
