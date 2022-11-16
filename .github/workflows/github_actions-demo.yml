@@ -9,7 +9,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3  
       - name: Hello World
-        uses: ./.github/actions/hello-world
+        uses: ./.github/actions/docker
         id: hello
         with:
           who-to-greet: 'Alejandro Armas'
