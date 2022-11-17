@@ -7,7 +7,8 @@ jobs:
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository
-        uses: actions/checkout@v3  
+        uses: actions/checkout@v3
+      - run: cp Dockerfile ./github/actions/docker && cp entrypoint.sh ./.github/actions/docker  
       - name: Hello World
         uses: ./.github/actions/docker
         id: hello
