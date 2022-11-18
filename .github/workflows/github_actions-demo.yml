@@ -8,7 +8,8 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Check out repository
         uses: actions/checkout@v3
-      - run: cp ./Dockerfile ./.github/actions/docker/ && cp ./entrypoint.sh ./.github/actions/docker/ && chmod u+x ./.github/actions/docker/entrypoint.sh   
+      - run: cp ./Dockerfile ./.github/actions/docker/ && cp ./entrypoint.sh ./.github/actions/docker/
+      - run: chmod u+x ./.github/actions/docker/entrypoint.sh   
       - name: Hello World
         uses: ./.github/actions/docker
         id: hello
@@ -16,6 +17,10 @@ jobs:
           who-to-greet: 'Alejandro Armas'
       - run: echo ${{ steps.hello.outputs.time }} was returned from Hello World Step
       
+      - name: Install Bazel
+        uses: ./.github/actions/bazel
+      - run: bazel test --cxxopt='-std=c++14'
+
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
