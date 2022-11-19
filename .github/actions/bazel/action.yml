@@ -3,5 +3,7 @@ name: 'Install Bazel Software'
 description: 'This is the build system we use to build C++ files.'
 
 runs:
-  using: 'bash'
-  main: 'install.sh'
+  using: 'composite'
+  steps:
+    - run: './install.sh'
+      shell: bash
