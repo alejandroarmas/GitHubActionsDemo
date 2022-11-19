@@ -5,7 +5,5 @@ description: 'This is the build system we use to build C++ files.'
 runs:
   using: 'composite'
   steps:
-    - run: ls -la
-      shell: bash
-    - run: 'install.sh'
+    - run: './.github/actions/bazel/install.sh'
       shell: bash
